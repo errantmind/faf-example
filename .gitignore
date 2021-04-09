@@ -1,0 +1,9 @@
+/target
+/docs
+/.vscode
+/prof
+/tests
+/benches
+go.sh
+perf.data
+Cargo.lock
