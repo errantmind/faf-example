@@ -14,7 +14,7 @@ To compile, FaF requires the following:
 * nightly Rust
 * [clang-12 and lld-12](https://apt.llvm.org/) to be installed and available in PATH. The version (i.e. 12) may change over time as Rust updates its LLVM version
 
-Build and run FaF with the following commands. Please note you will need to have clang-12
+Build and run FaF with the following commands
 ```
 # Build
 RUSTFLAGS="-Ctarget-cpu=native -Clinker=/usr/bin/clang-12 -Clink-arg=-fuse-ld=lld-12 -Clink-arg=-flto=thin \
