@@ -4,8 +4,9 @@ version = "0.2.0"
 authors = ["James Bates <errantmind@protonmail.com>"]
 edition = "2021"
 
+
 [profile.dev]
-opt-level = 3
+opt-level = 0
 debug = true
 debug-assertions = true
 overflow-checks = true
@@ -24,5 +25,4 @@ debug = false
 overflow-checks = false
 
 [dependencies]
-mimalloc = { version = "*", default-features = false }
-faf = { path = "/home/errant/dev/projects/faf-epoll" } #, features = ["faf_debug"] }
+faf = { path = "/home/errant/dev/projects/faf-epoll-taskset2" } #, features = ["faf_debug"] }
