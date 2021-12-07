@@ -22,7 +22,8 @@ panic = 'abort'
 codegen-units = 1
 lto = "thin"
 debug = false
+incremental = false
 overflow-checks = false
 
 [dependencies]
-faf = { path = "/home/errant/dev/projects/faf-epoll-taskset2" } #, features = ["faf_debug"] }
+faf = { path = "/home/errant/dev/projects/faf-epoll" } #, features = ["faf_debug"] }
