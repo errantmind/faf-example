@@ -21,17 +21,18 @@ RUN echo 'Apt::AutoRemove::SuggestsImportant "false";' > /etc/apt/apt.conf.d/doc
 
 # Get updates and basics needed for later installations
 RUN apt update && apt upgrade -y
-RUN apt install wget gnupg -y
-
-# Install LLVM 12
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
-RUN echo 'deb http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-12 main' >> /etc/apt/sources.list
-RUN apt update
 RUN apt install wget gnupg software-properties-common lsb-release nano -y
+
+
+#RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+#RUN echo 'deb http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-13 main' >> /etc/apt/sources.list
+#RUN apt update
+
+# Install LLVM 13
 RUN wget https://apt.llvm.org/llvm.sh
 RUN chmod +x llvm.sh
-RUN ./llvm.sh 12
-RUN apt install clang-tools-12
+RUN ./llvm.sh 13
+RUN apt install clang-tools-13
 
 # Install Rust
 RUN wget -O rustup-init.sh https://sh.rustup.rs
@@ -40,7 +41,7 @@ RUN ./rustup-init.sh -y --default-toolchain nightly
 RUN /root/.cargo/bin/rustup component add rust-src --toolchain nightly
 
 # Set clang as default for `cc`
-RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-12 100
+RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-13 100
 #RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/clang++-12 100
 
 # Clean out apt to prevent unattended upgrades in the future.. all apt should be before this point

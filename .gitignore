@@ -7,3 +7,5 @@
 go.sh
 perf.data
 Cargo.lock
+/start.sh
+/stop.sh
