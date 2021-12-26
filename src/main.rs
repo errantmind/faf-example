@@ -31,9 +31,6 @@ const PLAINTEXT_BASE: &[u8] = const_concat_bytes!(
 
 const PLAINTEXT_BASE_LEN: usize = PLAINTEXT_BASE.len();
 
-const PLAINTEXT_TEST: &[u8] = b"HTTP/1.1 200 OK\r\nServer: F\r\nContent-Type: text/plain\r\nContent-Length: 13\r\nDate: Thu, 18 Nov 2021 23:15:07 GMT\r\n\r\nHello, World!";
-const PLAINTEXT_TEST_LEN: usize = PLAINTEXT_TEST.len();
-
 #[inline]
 fn cb(
    method: *const u8,
@@ -75,6 +72,7 @@ fn cb(
    }
 }
 
+#[inline]
 pub fn main() {
    epoll::go(8089, cb);
 }
