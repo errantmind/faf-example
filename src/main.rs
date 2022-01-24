@@ -1,4 +1,4 @@
-#![feature(core_intrinsics, asm)]
+#![feature(core_intrinsics)]
 #![feature(start, lang_items)]
 #![allow(clippy::missing_safety_doc, unused_imports, dead_code)]
 
@@ -39,6 +39,7 @@ fn cb(
    path_len: usize,
    response_buffer: *mut u8,
    date_buff: *const u8,
+   client_ip: u32,
 ) -> usize {
    unsafe {
       if likely(method_len == GET_LEN && path_len == ROUTE_PLAINTEXT_LEN) {

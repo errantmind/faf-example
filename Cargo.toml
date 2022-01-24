@@ -6,14 +6,14 @@ edition = "2021"
 
 
 [profile.dev]
-opt-level = 0
+opt-level = 1
 debug = true
 debug-assertions = true
 overflow-checks = true
 lto = false
 panic = 'unwind'
-incremental = true
-codegen-units = 256
+incremental = false
+codegen-units = 1
 rpath = false
 
 [profile.release]
@@ -27,4 +27,4 @@ overflow-checks = false
 
 [dependencies]
 faf = { git = "https://github.com/errantmind/faf.git" } #, features = ["faf_debug"] }
-#faf = { path = "/home/errant/dev/projects/faf-epoll" } #, features = ["faf_debug"] }
+#faf = { path = "/home/errant/dev/projects/faf" } #, features = ["faf_debug"] }
