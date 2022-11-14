@@ -12,13 +12,13 @@ FaF is a Linux webserver written in Rust. It has a single goal: to demonstrate t
 To compile, FaF requires the following:
 * linux x86_64
 * nightly Rust
-* [clang-13 and lld-13](https://apt.llvm.org/) to be installed and available in PATH. The version (i.e. 13) may change over time as Rust updates its LLVM version
+* [clang-15 and lld-15](https://apt.llvm.org/) to be installed and available in PATH. The version (i.e. 15) may change over time as Rust updates its LLVM version
 
 Build and run FaF with the following commands. (Note, not all these flags are strictly necessary, they are there to ensure future performance. Remove any that cause your project issues)
 ```
 # Build
 RUSTFLAGS="-Ctarget-cpu=native -Ztune-cpu=native -Zmutable-noalias=yes -Clink-arg=-fexperimental-new-pass-manager \
-   -Clinker=/usr/bin/clang-13 -Clink-arg=-fuse-ld=/usr/bin/ld.lld-13 -Clink-arg=-flto=thin -Clto=thin -Copt-level=3 \
+   -Clinker=/usr/bin/clang-15 -Clink-arg=-fuse-ld=/usr/bin/ld.lld-15 -Clink-arg=-flto=thin -Clto=thin -Copt-level=3 \
    -Ccodegen-units=1 -Cpanic=abort -Cembed-bitcode=yes -Cforce-frame-pointers=n -Cdebug-assertions=no -Coverflow-checks=no \
    -Ccontrol-flow-guard=no -Clink-dead-code=no -Zno-parallel-llvm" \
    /root/.cargo/bin/cargo build --release --target x86_64-unknown-linux-gnu -Zbuild-std=panic_abort,core,std,alloc,proc_macro,compiler_builtins \

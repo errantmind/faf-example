@@ -1,4 +1,4 @@
-#![feature(core_intrinsics, asm)]
+#![feature(core_intrinsics)]
 #![feature(start, lang_items)]
 #![allow(clippy::missing_safety_doc, unused_imports, dead_code)]
 
@@ -74,5 +74,5 @@ fn cb(
 
 #[inline]
 pub fn main() {
-   epoll::go(8089, cb);
+   epoll::go(8080, cb);
 }
