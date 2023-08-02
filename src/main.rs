@@ -31,7 +31,7 @@ const PLAINTEXT_BASE: &[u8] = const_concat_bytes!(
 
 const PLAINTEXT_BASE_LEN: usize = PLAINTEXT_BASE.len();
 
-#[inline]
+#[inline(always)]
 fn cb(
    method: *const u8,
    method_len: usize,
@@ -72,7 +72,7 @@ fn cb(
    }
 }
 
-#[inline]
+#[inline(always)]
 pub fn main() {
    epoll::go(8080, cb);
 }
